@@ -1,0 +1,22 @@
+{
+  "name": "fitsole",
+  "version": "0.0.1",
+  "description": "prashan fitsole idd 2015",
+  "main": "fitsole.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qrazhan/fitsole.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qrazhan/fitsole/issues"
+  },
+  "homepage": "https://github.com/qrazhan/fitsole#readme",
+  "devDependencies": {
+    "noble": "^1.2.1"
+  }
+}
