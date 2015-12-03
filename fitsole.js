@@ -5,7 +5,12 @@ var charUUIDs = [ '713d0002503e4c75ba943148f18d941e', '713d0003503e4c75ba943148f
 var notifyChar = null;
 var writeChar = null;
 
-noble.startScanning();
+noble.on('stateChange', state => {
+	console.log(state);
+	if (state == 'poweredOn') {
+		noble.startScanning();
+	}
+});
 
 
 var requestData = function(){
@@ -22,7 +27,7 @@ var onServiceDiscovery = function(error, services, chars){
 		notifyChar.on('read', function(data, isNotif){
 			if(isNotif){
 				console.log('data from device : ', data);
-			}	
+			}
 		});
 		notifyChar.notify(true, function(err){
 			if(err){
@@ -31,7 +36,7 @@ var onServiceDiscovery = function(error, services, chars){
 				console.log('enabled notifications');
 				requestData();
 				setInterval(requestData, 1000);
-			}	
+			}
 		});
 	}
 }
@@ -59,6 +64,6 @@ noble.on('discover', function(peripheral){
 		/*var now = new Date();
 		while(new Date().getTime() < now+1000){
 			// do nothing, l0l
-		}*/	
+		}*/
 	}
 });
